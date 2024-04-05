@@ -65,17 +65,20 @@ img{
 }
 
 a{
+    color:unset;
     font-weight: bold;
+    
 }
 
 a:link{
     /* links are lighter grey blue and bold, become underlined on hover */
+    color:#99ddff;
     text-decoration:none;
 }
 
 a:visited{
+    color:lightgray;
     text-decoration:none;
-    color:#acc7d2;
 }
 
 a:hover{
