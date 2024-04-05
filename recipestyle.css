@@ -1,3 +1,103 @@
-div{
+*{
     background-color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:18px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    /* padding:0; in case you want to remove 
+    all browser enforced padding*/
+    /* margin:0; in case you want to remove
+    all browser-enforced auto margins.*/
+}
+
+#topnav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    color:white; 
+    font-size:24px; 
+    font-weight:bold;
+    background-color:#0099e6;
+    padding: 20px 0px 20px 20px;
+}
+
+#topnav a:link, #topnav a:visited{
+    color: white;
+    font-size:24px; 
+    font-weight:bold;
+    background-color:transparent;
+}
+/* top right bottom left */
+#topnav a:hover{
+    text-decoration:none;
+    background-color:#00639452;
+    border-radius:20px;
+    margin-left:-10px;  /*this shit keeps the new padding from moving the text*/
+    padding: 20px 10px 20px 10px;
+}
+
+p{
+    padding:50px 20px 10px 20px;
+}
+
+h3{
+    /* title header is blue in color */
+    color:#0099e6;
+    font-size: 30px;
+}
+
+.mini-header{
+    /* secondary headers are bold and slightly larger than bellow text */
+    font-weight:900;
+    font-size:20px;
+}
+
+img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:500px;
+    border: 2px solid;
+    padding: 2px;
+    border-radius: 20px;
+    border-color:#99ddff;
+}
+
+a{
+    font-weight: bold;
+}
+
+a:link{
+    /* links are lighter grey blue and bold, become underlined on hover */
+    text-decoration:none;
+}
+
+a:visited{
+    text-decoration:none;
+    color:#acc7d2;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+
+.recipeCard{
+    /* paragraphs are outlined in a thin black border with a strip of blue
+    at the top like a recipe card. maybe has a flashcard background */
+    border: 2px solid;
+    border-top:20px solid #0099e6;
+
+    padding: 50px;
+    border-radius:20px;
+}
+
+li::marker{
+    /* all lists have colored bullets, numbers, etc */
+    color:#0099e6;
+}
+
+li+li{
+    margin-top:15px
 }
