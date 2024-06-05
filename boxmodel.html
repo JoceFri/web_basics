@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- THIS ALLOWS ALL OBJECTS IN A FILE TO BE RESET TO BORDER-BOX
+    html{
+        box-sizing:border-box;
+    }
+
+    *,
+    *::before,
+    *::after{
+        box-sizing: inherit;
+    }
+
+}-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            font-family:'Courier New', Courier, monospace;
+            outline: 2px solid red;
+        }
+        h4 *{
+            outline:none;
+        }
+        .box-one {
+            outline: none;
+            padding: 10px;
+            height: 100px;
+            width: 100px;
+            margin:20px;
+            font-size: 40px;
+            background-color: #eb5757;
+            border: 20px solid #9b51e0;
+        }
+        /* MARGIN PADDING OVERLAPS BETWEEN OBJECTS
+            TWO OBJECTS PLACED NEXT TO EACH OTHER WITH 20px
+            MARGINS WILL BE 20px APART, NOT 40px. */
+        .box-two{
+            padding: 0;
+            margin: 20px; 
+            height: 100px;
+            width: 100px;
+            outline: none;
+            font-size:40px;
+            background-color:#2d9cdb;
+            border: 30px solid #27ae60;
+            box-sizing:border-box;
+            /* BORDER BOX adjusts the border so it fits inside of the given bounding box
+                removing it will add a border to the outside of the object. 
+                In this case, the element is 100x100px. With a border box of 30, that leaves
+                the usable space as 40x40px because 30px is subtracted from all sides.
+                This gets added to the universal style element a LOT because it reduces the
+                amount of math you have to do in your head. THIS ALSO APPLIES TO BORDERS.*/
+        }
+        /*CONTENT BOX  adds padding to the outside of a content box, just like
+        the default.*/
+        .box-three {
+            padding: 50px;
+            border: 20px solid black;
+            height: 200px;
+            width: 400px;
+            margin:0;
+            font-size: 40px;
+            background-color: gray;
+            /* box-sizing: content-box; */
+            box-sizing:border-box;
+            /* box-sizing: inline; */
+        }
+        
+        /* INLINE  does not break onto a new line, width and height do not apply.
+        margins and padding do apply but do not cause other inline boxes to move
+        left and right padding applies and causes other inline boxes to move*/
+
+        span{
+            font-weight: bold;
+            color:white;
+            background:black;
+        }
+
+        .inline{
+            display:inline;
+        }
+        .inlineflex{
+            display:inline-flex;
+        }
+        .flex{
+            display:flex;
+        }
+        .block{
+            display:block;
+        }
+
+        /* BOXES CAN HAVE NEGATIVE MARGINS to move them around in a given space 
+        Two positive margines will comebine and the largest margin prevails.
+        Two negatives will combine with the smallest value taking charge.
+        If only one margine is negative, then it it subtracted from the total.*/
+        .box{
+            padding: 20px;
+            background-color:gray;
+            border: 5px solid black;
+            margin-top:20px;
+            margin-right:-20px;
+            margin-bottom:-40px;
+            margin-left:40px;
+        }
+
+        .zigzagbox{
+            outline: none;
+            position:relative;
+            color: white;
+            background-color:#2d9cdb;
+            text-align: center;
+            
+        }
+
+        .zigzagbox::before{
+            content: " ";
+            display: block;
+            position: absolute;
+            height:1vw;
+            top: -35%;
+            left: 0px;
+            right: 0px;
+            /* width:100%; */
+            
+            background:linear-gradient(-45deg,#2d9cdb 33.33%, transparent 33.33%, transparent 66.66%, #2d9cdb 66.66%),
+            linear-gradient(45deg, #2d9cdb 33.33%, transparent 33.33%, transparent 66.66%, #2d9cdb 66.66%);
+            /* #2d9cdb linear-gradient(45deg, transparent 33.33%, black 33.33%) 0 0%; */
+            /* background-repeat:repeat-x; */
+            background-size: 10px 20px;
+            background-position: 0 10px;
+        }
+
+        #header{
+            background:transparent;
+            width:100%;
+            height: 10%;
+            display:block;
+            position:top;
+            box-sizing:border-box;
+            margin-bottom: 10px;
+        }
+        .mediabox
+        {
+            outline: none;
+            position:top;
+            /* padding-bottom:15px; */
+            display:inline-flex;
+            background:blue;
+            width:100%;
+            height: 50px;
+        }
+        .bumpyline{
+            outline: none;
+            display:block;
+            width:100%;
+            height: 25px;
+            content: "";
+            background-image: 
+                radial-gradient(
+                    circle at 50% 0%,
+                    blue 1rem,
+                    black 1.02rem,
+                    rgba(0, 0, 0, 0.40)1.1rem,
+                    transparent 1.35rem);
+            background-size:2rem 100%;
+
+        }
+    </style>
+</head>
+<body>
+        <div class="mediabox">
+            &nbsp
+        </div>
+        <div class="bumpyline">
+            &nbsp
+        </div>   
+    <h2>I'm a box</h2>
+    <p>
+        I'm a paragraph. I am a box. 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolore facere velit quae sequi veniam, pariatur dicta delectus molestiae quibusdam nesciunt maxime consectetur odio fugiat nihil ad cupiditate odit. Recusandae?
+    </p>
+    <ul>
+        <li>
+            this list is a box
+        </li>
+        <li>
+            all list items have their own box
+        </li>
+    </ul>
+
+    even <button>buttons</button> and <a href="">links</a> are boxes
+
+    <h4>
+        <dl>
+            <dt>PADDING</dt>
+            <dd>the space between text and the inside of the box</dd>
+            <dt>MARGIN</dt>
+            <dd>the space between the outside of the box and the bounds of the webpage</dd>
+            <dt>BORDER</dt>
+            <dd>the outline of the "box" in which objects rest</dd>
+        </dl>
+    </h4>
+    <div class="box-one">
+        ONE
+    </div>
+    <div class="box-two">
+        TWO
+    </div>
+    <div class="box-three">
+        Three
+    </div>
+
+    <ul style="display:flex; list-style:none; padding:10px">
+    <!-- <ul> -->
+        <!-- ABOVE WE REMOVE THE DEFAULT STYLE OF THE LIST. 
+            The interior has also been assigned FLEX, so all things within
+            the box function according to Flexbox specification. -->
+            <li>Item One</li>
+            <li>Item Two</li>
+            <li>Item Three</li>
+    </ul>
+    <p>
+        This <span>paragraph</span> contains an example of <span>specific</span> words having specific 
+        <span>classes</span>applied to them. 
+    </p>
+    <p class="inline"> Thanks to inline, this paragraph...</p>
+    <p class="inline">Can have another paragraph right next to it.</p>
+    <br><br>
+    <p class="inlineflex"> These paragraphs</p>
+    <p class="inlineflex">represent inline flex</p>
+    <br><br>
+    <p class="flex"> this is commpletely flex</p>
+    <p class="flex">this is also completely flex</p>
+    <br><br>
+    <p class="block"> and finally</p>
+    <p class="block">this display is block</p>
+    <br>
+    <br>
+    <p class="box">
+        Oh no!
+            I've excaped my margin box. 
+            How tragic.
+    </p>
+    <br>
+    <br>
+    <div class="zigzagbox"><h1>Bottom Text, Wahoo!</h1></div>
+    <br>
+
+    <div class="bumpyline">
+         &nbsp
+    </div>
+</body>
+</html>
