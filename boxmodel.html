@@ -81,6 +81,40 @@
             background:black;
         }
 
+        special{
+            place-self: center stretch;
+            box-sizing:border-box;
+            display:inline-block;
+            grid-column: span 1;
+            grid-auto-flow:column;
+            /* width:40%; */
+            text-align: left;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size:20;
+            color:#361555; 
+            border: 1px solid black;
+            border-radius:5px;
+            box-shadow: -10px 10px blueviolet;
+            padding:10px;
+            /* margin-left:auto; */
+            /* margin-right:auto; */
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+        
+
+        .specialcontainer{
+            box-sizing:border-box;
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap:15px;
+            /* grid-template-rows:1fr; */
+            width:90%;
+            margin-left:auto;
+            margin-right:auto;
+            grid-auto-flow:column;
+        }
+
         .inline{
             display:inline;
         }
@@ -251,10 +285,28 @@
     <br>
     <br>
     <div class="zigzagbox"><h1>Bottom Text, Wahoo!</h1></div>
-    <br>
-
-    <div class="bumpyline">
-         &nbsp
+    <h4>
+        <div class="specialcontainer">
+            <special>All text within this block will not exceed the block and will go to the next line according to the block's parameters.
+            <span>This also includes our special span text, which is automatically set to "inline"</span>
+            Typically, &LeftAngleBracket;div&RightAngleBracket; is used to extablish a boundary in which other elements might be confined to.
+            But, this box in particular is a "special" element with no class. It also uses two inline-blocks contained within a grid!
+            </special>
+            <special>
+                Block elements include:
+                <ul>
+                    <li>&LeftAngleBracket; p &RightAngleBracket;</li>
+                    <li>&LeftAngleBracket; div &RightAngleBracket;</li>
+                </ul>
+                <br>
+                Inline Elements Include:
+                <ul>
+                    <li>&LeftAngleBracket; span &RightAngleBracket;</li>
+                    <li>&LeftAngleBracket; button &RightAngleBracket;</li>
+                </ul>
+            </special>
+    </h4> 
     </div>
+
 </body>
 </html>
